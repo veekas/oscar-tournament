@@ -31,3 +31,8 @@ html(ng-app='openchallenge', ng-controller="rootController")
 
     script(src='./js/lib.min.js')
     script(src='./js/main.min.js')
+    script(type="text/javascript").
+      if (window && window.process && window.process.type) {
+        Firebase.enableLogging(true);
+        // require('electron-cookies');
+      }

@@ -40,7 +40,6 @@ var remember = require('gulp-remember');
 var mocha = require('gulp-mocha');
 var changelog = require('conventional-changelog');
 var electron = require('gulp-electron');
-//var nwbuilder = require('gulp-nw-builder');
 var packageJSON = require('./package.json');
 
 var watching = false;
@@ -52,7 +51,7 @@ var getPaths = function() {
 gulp.task('deploy', function() {
   var paths = getPaths();
 
-  return gulp.src(paths.dist + '**/*')
+  return gulp.src(paths.dist + '/(css|js|favicon.ico|index.html)')
     .pipe(ghPages());
 });
 
@@ -71,10 +70,11 @@ gulp.task('copy:favicon', ['clean'], function() {
     .pipe(gulp.dest(paths.dist))
     .on('error', util.log);
 });
+
 gulp.task('copy:electron', function() {
   var paths = getPaths();
 
-  return gulp.src('./electron.js')
+  return gulp.src(['./electron.js', './package.json'])
     .pipe(gulp.dest(paths.dist))
     .on('error', util.log);
 });
@@ -103,7 +103,7 @@ gulp.task('build:libjs', ['clean'], function() {
   return gulp.src(paths.libjs)
     //.pipe(cached('libjs'))
     //.pipe(remember('libjs'))
-    .pipe(gulpif(!watching, uglify({ outSourceMaps: false })))
+    //.pipe(gulpif(!watching, streamify(uglify({ outSourceMaps: false }))))
     .pipe(concat('lib.min.js'))
     .pipe(gulp.dest(paths.dist + 'js'))
     .on('error', util.log);
@@ -127,7 +127,7 @@ gulp.task('compile:js', ['eslint', 'clean'], function() {
     return bundler
       .bundle()
       .pipe(source('js/main.min.js'))
-      .pipe(gulpif(!watching, streamify(uglify({ outSourceMaps: false }))))
+      //.pipe(gulpif(!watching, streamify(uglify({ outSourceMaps: false }))))
       .pipe(ngAnnotate())
       .pipe(gulp.dest(paths.dist))
       .on('error', util.log);
@@ -270,7 +270,15 @@ gulp.task('generate:changelog', function() {
     .pipe(fs.createWriteStream('CHANGELOG.md'));
 });
 
-gulp.task('generate:binaries', ['copy:electron'], function() {
+gulp.task('clean:binaries', function() {
+  return gulp.src('./bin-build')
+    .pipe(vinylPaths(del))
+    .on('error', util.log);
+});
+
+gulp.task('generate:binaries', ['clean:binaries', 'copy:electron'], function() {
+
+  execSync('npm install --prefix ./dist/ express electron-cookies');
 
   return gulp.src('')
     .pipe(electron({
