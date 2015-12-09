@@ -15,7 +15,7 @@ const vinylPaths = require('vinyl-paths');
 const getPaths = require('./_common').getPaths;
 const currentTag = require('./_common').currentTag;
 
-const binaryPath = () => getPaths().bin.build + '/OpenChallenge';
+const binaryPath = () => getPaths().bin.build + '/TournamentMango';
 
 gulp.task('clean:binaries', () => {
   const paths = getPaths();
@@ -34,7 +34,7 @@ gulp.task('package:binaries', ['generate:binaries'], folders(binaryPath(), (fold
 gulp.task('upload:binaries', ['package:binaries'], () => {
   return gulp.src(`${getPaths().bin.release}/*.zip`)
     .pipe(release({
-      repo: 'openchallenge',
+      repo: 'tournamentmango',
       owner: 'seiyria',
       tag: currentTag(),
       manifest: require('../package.json')
