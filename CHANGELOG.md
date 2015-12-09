@@ -1,6 +1,23 @@
-<a name="0.6.7"></a>
-## [0.6.7](https://github.com/seiyria/tournamentmango/compare/0.6.7...v0.6.7) (2015-11-10)
+<a name="0.6.8"></a>
+## [0.6.8](https://github.com/seiyria/tournamentmango/compare/0.6.8...v0.6.8) (2015-12-09)
 
+
+
+
+<a name="0.6.8"></a>
+## [0.6.8](https://github.com/seiyria/tournamentmango/compare/0.6.7...0.6.8) (2015-12-09)
+
+
+### Bug Fixes
+
+* **tournaments:** social links now should not break by default (the goo.gl url shortener is used c ([d6fe5f3](https://github.com/seiyria/tournamentmango/commit/d6fe5f3)), closes [#41](https://github.com/seiyria/tournamentmango/issues/41)
+* **ui:** the title section should sound a bit better ([907966e](https://github.com/seiyria/tournamentmango/commit/907966e))
+
+### Features
+
+* **tournaments:** Clicking on match title will display popup of match summary ([baea6b8](https://github.com/seiyria/tournamentmango/commit/baea6b8)), closes [#87](https://github.com/seiyria/tournamentmango/issues/87)
+* **tournaments:** tournament headers can now be edited to display custom round titles ([d1416d3](https://github.com/seiyria/tournamentmango/commit/d1416d3)), closes [#101](https://github.com/seiyria/tournamentmango/issues/101)
+* **tournaments:** user scores are now recalculated automatically when a tournament is finished ([7995cfc](https://github.com/seiyria/tournamentmango/commit/7995cfc)), closes [#90](https://github.com/seiyria/tournamentmango/issues/90)
 
 
 
