@@ -9,7 +9,6 @@
   "license": "MIT",
   "authors": [
     "Kyle Kemp <kyle@seiyria.com>"
-    "Veekas Shrivastava <veekas@veekasmeansprogress.com>"
   ],
   "node-main": "nw.js",
   "main": "nw.html",
