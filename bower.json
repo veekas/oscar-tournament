@@ -1,8 +1,9 @@
 {
-  "name": "TournamentMango",
+  "name": "Oscar Tournaments",
   "version": "0.7.0",
   "authors": [
     "Kyle Kemp <kyle@seiyria.com>"
+    "Veekas Shrivastava <veekas@veekasmeansprogress.com>"
   ],
   "dependencies": {
     "angular-material": "1.0.0",

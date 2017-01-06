@@ -1,19 +1,20 @@
 {
-  "name": "TournamentMango",
+  "name": "Oscar Tournaments",
   "description": "A tournament management tool.",
   "readme": "README.md",
   "repository": {
-    "url": "https://github.com/seiyria/tournamentmango"
+    "url": "https://github.com/veekas/oscar-tournament"
   },
   "version": "0.7.0",
   "license": "MIT",
   "authors": [
     "Kyle Kemp <kyle@seiyria.com>"
+    "Veekas Shrivastava <veekas@veekasmeansprogress.com>"
   ],
   "node-main": "nw.js",
   "main": "nw.html",
   "window": {
-    "title": "TournamentMango - loading...",
+    "title": "Oscar Tournaments - loading...",
     "width": 1024,
     "height": 768,
     "toolbar": false
